@@ -1,0 +1,35 @@
+{
+  "name": "blockdiagramscreator",
+  "version": "1.0.0",
+  "description": "Program do tworzenia schematow blokowych",
+  "main": "index.js",
+  "scripts": {
+    "dev":"webpack-dev-server --mode development --content-base ./dev",
+    "build":"webpack --mode production",
+    "sass": "sass --watch dev/scss/main.scss dev/css/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Desmord/BlockDiagramsCreator.git"
+  },
+  "author": "Mikolaj Chojnacki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Desmord/BlockDiagramsCreator/issues"
+  },
+  "homepage": "https://github.com/Desmord/BlockDiagramsCreator#readme",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.2",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.2.0",
+    "image-webpack-loader": "^6.0.0",
+    "jest": "^25.3.0",
+    "style-loader": "^1.1.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
