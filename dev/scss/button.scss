@@ -1,0 +1,13 @@
+.button {
+    background-color: #fff;
+}
+
+
+
+$buttons-attribute:('line', 'arrow', 'square', 'daimond', 'eraser', 'text');
+
+@each $attribute in $buttons-attribute {
+    .button[data-tool='#{$attribute}'] {
+        grid-area: #{$attribute};
+    }
+}

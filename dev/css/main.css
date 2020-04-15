@@ -21,6 +21,47 @@ body {
   grid-template-columns: 1px 1fr 6fr 1px;
   grid-template-rows: 1px 1fr 1px;
   grid-template-areas: ". . . ." ". menu canvas-container ." ". . . .";
+  font-size: 20px;
+}
+
+.menu {
+  border-radius: 8px;
+  box-shadow: 0px 0px 4px 1px #020202;
+  background-image: linear-gradient(to right, rgba(20, 9, 13, 0.5), rgba(65, 4, 25, 0.5));
+  font-size: 1em;
+  grid-area: menu;
+  display: grid;
+  grid-template-columns: 5px 1fr 1fr 5px;
+  grid-template-rows: 5px repeat(6, 1fr) 10px 4fr 10px repeat(4, minmax(45px, 1.2fr)) 2fr 1fr 5px;
+  grid-template-areas: ". . . ." ". line line ." ". arrow arrow ." ". square square ." ". daimond daimond ." ". eraser eraser ." ". text text ." ". . . ." ". text-color text-color ." ". . . ." ". width width ." ". height height ." ". line-width line-witdh ." ". font-size font-size ." ". . . ." ". save load ." ". . . .";
+}
+
+.button {
+  background-color: #fff;
+}
+
+.button[data-tool=line] {
+  grid-area: line;
+}
+
+.button[data-tool=arrow] {
+  grid-area: arrow;
+}
+
+.button[data-tool=square] {
+  grid-area: square;
+}
+
+.button[data-tool=daimond] {
+  grid-area: daimond;
+}
+
+.button[data-tool=eraser] {
+  grid-area: eraser;
+}
+
+.button[data-tool=text] {
+  grid-area: text;
 }
 
 /*# sourceMappingURL=main.css.map */
