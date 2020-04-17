@@ -11,7 +11,7 @@ body {
   width: 100vw;
   min-width: 1200px;
   height: 100vh;
-  min-height: 700px;
+  min-height: 600px;
   background-image: url("../resources/background.jpg");
   background-position: center center;
   background-size: cover;
@@ -26,42 +26,303 @@ body {
 
 .menu {
   border-radius: 8px;
-  box-shadow: 0px 0px 4px 1px #020202;
-  background-image: linear-gradient(to right, rgba(20, 9, 13, 0.5), rgba(65, 4, 25, 0.5));
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.8);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
   font-size: 1em;
   grid-area: menu;
   display: grid;
   grid-template-columns: 5px 1fr 1fr 5px;
   grid-template-rows: 5px repeat(6, 1fr) 10px 4fr 10px repeat(4, minmax(45px, 1.2fr)) 2fr 1fr 5px;
-  grid-template-areas: ". . . ." ". line line ." ". arrow arrow ." ". square square ." ". daimond daimond ." ". eraser eraser ." ". text text ." ". . . ." ". text-color text-color ." ". . . ." ". width width ." ". height height ." ". line-width line-witdh ." ". font-size font-size ." ". . . ." ". save load ." ". . . .";
+  grid-template-areas: ". . . ." ". line line ." ". arrow arrow ." ". square square ." ". daimond daimond ." ". eraser eraser ." ". text text ." ". . . ." ". text-color text-color ." ". . . ." ". width width ." ". height height ." ". line-width line-width ." ". font-size font-size ." ". . . ." ". save load ." ". . . .";
 }
 
-.button {
+.menu__text-color-container {
+  grid-area: text-color;
   background-color: #fff;
 }
 
+.menu__save {
+  grid-area: save;
+  background-color: #3f6ae0;
+}
+
+.menu__load {
+  grid-area: load;
+  background-color: #d43f3f;
+}
+
+@media all and (max-width: 1400px) {
+  .menu {
+    font-size: 0.9em;
+  }
+}
+@media all and (max-width: 1200px) {
+  .menu {
+    font-size: 0.8em;
+  }
+}
 .button[data-tool=line] {
+  display: block;
+  position: relative;
   grid-area: line;
+  background-color: rgba(85, 70, 123, 0.4);
+  margin-top: 1px;
+  color: #d9d9d9;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.2em;
+  transition: all 0.2s ease-out;
+}
+.button[data-tool=line]:hover {
+  cursor: pointer;
+}
+.button[data-tool=line]:hover > .button__background {
+  width: 100%;
+}
+.button[data-tool=line]:hover > .button__text {
+  color: white;
+}
+.button[data-tool=line]:hover > .button__icon {
+  color: white;
+}
+
+.button:nth-of-type(1) .button__background {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 3%;
+  height: 100%;
+  background-color: rgba(85, 70, 123, 0.8);
+  transition: all 0.3s ease-out;
 }
 
 .button[data-tool=arrow] {
+  display: block;
+  position: relative;
   grid-area: arrow;
+  background-color: rgba(115, 71, 124, 0.4);
+  margin-top: 1px;
+  color: #d9d9d9;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.2em;
+  transition: all 0.2s ease-out;
+}
+.button[data-tool=arrow]:hover {
+  cursor: pointer;
+}
+.button[data-tool=arrow]:hover > .button__background {
+  width: 100%;
+}
+.button[data-tool=arrow]:hover > .button__text {
+  color: white;
+}
+.button[data-tool=arrow]:hover > .button__icon {
+  color: white;
+}
+
+.button:nth-of-type(2) .button__background {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 3%;
+  height: 100%;
+  background-color: rgba(115, 71, 124, 0.8);
+  transition: all 0.3s ease-out;
 }
 
 .button[data-tool=square] {
+  display: block;
+  position: relative;
   grid-area: square;
+  background-color: rgba(111, 72, 124, 0.4);
+  margin-top: 1px;
+  color: #d9d9d9;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.2em;
+  transition: all 0.2s ease-out;
+}
+.button[data-tool=square]:hover {
+  cursor: pointer;
+}
+.button[data-tool=square]:hover > .button__background {
+  width: 100%;
+}
+.button[data-tool=square]:hover > .button__text {
+  color: white;
+}
+.button[data-tool=square]:hover > .button__icon {
+  color: white;
+}
+
+.button:nth-of-type(3) .button__background {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 3%;
+  height: 100%;
+  background-color: rgba(111, 72, 124, 0.8);
+  transition: all 0.3s ease-out;
 }
 
 .button[data-tool=daimond] {
+  display: block;
+  position: relative;
   grid-area: daimond;
+  background-color: rgba(103, 70, 121, 0.4);
+  margin-top: 1px;
+  color: #d9d9d9;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.2em;
+  transition: all 0.2s ease-out;
+}
+.button[data-tool=daimond]:hover {
+  cursor: pointer;
+}
+.button[data-tool=daimond]:hover > .button__background {
+  width: 100%;
+}
+.button[data-tool=daimond]:hover > .button__text {
+  color: white;
+}
+.button[data-tool=daimond]:hover > .button__icon {
+  color: white;
+}
+
+.button:nth-of-type(4) .button__background {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 3%;
+  height: 100%;
+  background-color: rgba(103, 70, 121, 0.8);
+  transition: all 0.3s ease-out;
 }
 
 .button[data-tool=eraser] {
+  display: block;
+  position: relative;
   grid-area: eraser;
+  background-color: rgba(86, 67, 113, 0.4);
+  margin-top: 1px;
+  color: #d9d9d9;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.2em;
+  transition: all 0.2s ease-out;
+}
+.button[data-tool=eraser]:hover {
+  cursor: pointer;
+}
+.button[data-tool=eraser]:hover > .button__background {
+  width: 100%;
+}
+.button[data-tool=eraser]:hover > .button__text {
+  color: white;
+}
+.button[data-tool=eraser]:hover > .button__icon {
+  color: white;
+}
+
+.button:nth-of-type(5) .button__background {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 3%;
+  height: 100%;
+  background-color: rgba(86, 67, 113, 0.8);
+  transition: all 0.3s ease-out;
 }
 
 .button[data-tool=text] {
+  display: block;
+  position: relative;
   grid-area: text;
+  background-color: rgba(65, 64, 104, 0.4);
+  margin-top: 1px;
+  color: #d9d9d9;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.2em;
+  transition: all 0.2s ease-out;
+}
+.button[data-tool=text]:hover {
+  cursor: pointer;
+}
+.button[data-tool=text]:hover > .button__background {
+  width: 100%;
+}
+.button[data-tool=text]:hover > .button__text {
+  color: white;
+}
+.button[data-tool=text]:hover > .button__icon {
+  color: white;
+}
+
+.button:nth-of-type(6) .button__background {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 3%;
+  height: 100%;
+  background-color: rgba(65, 64, 104, 0.8);
+  transition: all 0.3s ease-out;
+}
+
+.button:first-of-type {
+  border-radius: 5px 5px 0px 0px;
+}
+
+.button:nth-of-type(6) {
+  border-radius: 0px 0px 5px 5px;
+}
+
+.button__text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 3%;
+  top: 0px;
+  width: 77%;
+  height: 100%;
+}
+
+.button__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 80%;
+  top: 0px;
+  width: 20%;
+  height: 100%;
+}
+
+.button__background--active {
+  width: 100% !important;
+}
+
+.propertie {
+  background-color: #cf3d3d;
+}
+
+.propertie[data-tool=width] {
+  grid-area: width;
+}
+
+.propertie[data-tool=height] {
+  grid-area: height;
+}
+
+.propertie[data-tool=line-width] {
+  grid-area: line-width;
+}
+
+.propertie[data-tool=font-size] {
+  grid-area: font-size;
 }
 
 /*# sourceMappingURL=main.css.map */

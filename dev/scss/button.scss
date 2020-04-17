@@ -1,13 +1,93 @@
-.button {
-    background-color: #fff;
+$first-button-index: 1;
+$last-button-index: length($buttons-attribute);
+
+@each $attribute in $buttons-attribute {
+
+    $element-index: index($buttons-attribute, $attribute);
+    $color-index: index($buttons-attribute, $attribute) + 2;
+
+    $color: map.get($colors-1, "color-#{$color-index}");
+    $opacity: 0.4;
+    $hue: hue($color);
+    $saturation: saturation($color) * 0.4;
+    $lightness: lightness($color) * 0.5;
+
+    $background-color: hsla($hue, $saturation, $lightness, $opacity);
+    $active-background-color: hsla($hue, $saturation, $lightness, $opacity *2);
+
+    .button[data-tool='#{$attribute}'] {
+        display: block;
+        position: relative;
+        grid-area: #{$attribute};
+        background-color: $background-color;
+        margin-top: 1px;
+        color: $text-color;
+        font-family: $font;
+        font-weight: 700;
+        font-size: 1.2em;
+        transition: all 0.2s ease-out;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:hover>.button__background {
+            width: 100%;
+        }
+
+        &:hover>.button__text {
+            color: lighten($text-color, 20%);
+        }
+
+        &:hover>.button__icon {
+            color: lighten($text-color, 20%);
+        }
+
+    }
+
+    .button:nth-of-type(#{$element-index}) {
+        .button__background {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 3%;
+            height: 100%;
+            background-color: $active-background-color;
+            transition: all 0.3s ease-out;
+        }
+    }
+
 }
 
 
+.button:first-of-type {
+    border-radius: 5px 5px 0px 0px;
+}
 
-$buttons-attribute:('line', 'arrow', 'square', 'daimond', 'eraser', 'text');
+.button:nth-of-type(#{$last-button-index}) {
+    border-radius: 0px 0px 5px 5px;
+}
 
-@each $attribute in $buttons-attribute {
-    .button[data-tool='#{$attribute}'] {
-        grid-area: #{$attribute};
-    }
+.button__text {
+    @include flex-box();
+
+    position: absolute;
+    left: 3%;
+    top: 0px;
+    width: 77%;
+    height: 100%;
+}
+
+.button__icon {
+    @include flex-box();
+
+    position: absolute;
+    left: 80%;
+    top: 0px;
+    width: 20%;
+    height: 100%;
+}
+
+.button__background--active {
+    width: 100% !important;
 }

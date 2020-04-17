@@ -1,0 +1,10 @@
+.propertie {
+    background-color: rgb(207, 61, 61);
+}
+
+
+@each $propertie in $properties-attribute {
+    .propertie[data-tool='#{$propertie}'] {
+        grid-area: #{$propertie};
+    }
+}

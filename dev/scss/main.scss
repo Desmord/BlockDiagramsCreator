@@ -1,23 +1,27 @@
-$font:  'PT Sans', sans-serif;
-$font-size: 20px;
+@use "sass:map";
 
-$color-1: hsl(253.8, 5.2%, 50.8%);
-$color-2:hsl(256.4, 4.7%, 46.1%);
-$color-3:hsl(283.6, 4.9%, 44.1%);
-$color-4:hsl(339.2, 10.7%, 47.8%);
-$color-5:hsl(358.8, 21.9%, 55.3%);
-$color-6:hsl(4.5, 30.8%, 58%);
-$color-7:hsl(11.5, 44.3%, 60.6%);
-$color-8:hsl(14.4, 50.5%, 61.2%);
-$color-9:hsl(12.6, 56.4%, 58.6%);
-$color-10:hsl(4, 51.9%, 54.3%);
-$color-11:hsl(0.5, 47.3%, 52.4%);
-$color-12:hsl(355.1, 46.1%, 47.3%);
-$color-13:hsl(349.1, 45.4%, 38%);
-$color-14:hsl(339.6, 38.4%, 28.6%);
-$menu-background-color-1: hsla(339.6, 38.4%, 5.6%, 0.5);
-$menu-background-color-2:hsla(339.6, 88.4%, 13.6%, 0.5);
-$menu-gradient: linear-gradient(to right,$menu-background-color-1,$menu-background-color-2);
+$font: 'PT Sans',
+sans-serif;
+$font-size: 20px;
+$text-color: hsl(0,0%,85%);
+
+$menu-background-color-1: rgba(0,0,0,0.7);
+$menu-background-color-2:rgba(0,0,0,0.7);
+$menu-gradient: linear-gradient(to right, $menu-background-color-1, $menu-background-color-2);
+
+$colors-1:(
+    "color-1":rgba(160,157,228,1),
+    "color-2":rgba(163,143,230,1),
+    "color-3":rgba(175,151,235,1),
+    "color-4":rgba(221,155,236,1),
+    "color-5":rgba(216,155,235,1),
+    "color-6":rgba(203,149,233,1),
+    "color-7":rgba(172,133,228,1),
+    "color-8":rgba(118,117,219,1));
+
+$buttons-attribute:('line', 'arrow', 'square', 'daimond', 'eraser', 'text');
+$properties-attribute:('width', 'height', 'line-width', 'font-size');
+
 
 @mixin flex-box() {
     display: flex;
@@ -39,7 +43,7 @@ body {
     width: 100vw;
     min-width: 1200px;
     height: 100vh;
-    min-height: 700px;
+    min-height: 600px;
     background-image: url('../resources/background.jpg');
     background-position: center center;
     background-size: cover;
