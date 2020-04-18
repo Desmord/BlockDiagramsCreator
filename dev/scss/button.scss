@@ -80,13 +80,19 @@ $last-button-index: length($buttons-attribute);
 
 .button__icon {
     @include flex-box();
-
     position: absolute;
     left: 80%;
     top: 0px;
     width: 20%;
     height: 100%;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+
+    img {
+        width: 80%;
+        height: 80%;
+    }
 }
+
 
 .button__background--active {
     width: 100% !important;

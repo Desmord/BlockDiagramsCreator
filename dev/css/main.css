@@ -43,12 +43,10 @@ body {
 
 .menu__save {
   grid-area: save;
-  background-color: #3f6ae0;
 }
 
 .menu__load {
   grid-area: load;
-  background-color: #d43f3f;
 }
 
 @media all and (max-width: 1400px) {
@@ -299,14 +297,15 @@ body {
   top: 0px;
   width: 20%;
   height: 100%;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+.button__icon img {
+  width: 80%;
+  height: 80%;
 }
 
 .button__background--active {
   width: 100% !important;
-}
-
-.propertie {
-  background-color: #cf3d3d;
 }
 
 .propertie[data-tool=width] {

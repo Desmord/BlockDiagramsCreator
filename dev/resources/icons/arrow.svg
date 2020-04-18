@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="no"?>
+<!--Created with Sketsa SVG Editor (http://www.kiyut.com)-->
+<svg contentScriptType="text/ecmascript" width="500.0px" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="full"
+    zoomAndPan="magnify" contentStyleType="text/css" height="500.0px" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+    version="1.0">
+    <rect fill="#cccccc" x="30.0" width="400.0" height="30.0" y="235.0" stroke="#cccccc"/>
+    <rect x="330.85925" y="207.94308" transform="matrix(0.7312254 0.682136 -0.682136 0.7312254 258.79947 -214.81947)"
+        fill="#cccccc" width="120.0416" height="30.270767" stroke="#cccccc"/>
+    <rect x="319.839" y="323.03482" transform="matrix(-0.6663311 0.745656 -0.745656 -0.6663311 900.72205 223.02312)"
+        fill="#cccccc" width="120.0416" height="30.270767" stroke="#cccccc"/>
+</svg>

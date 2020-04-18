@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<!--Created with Sketsa SVG Editor (http://www.kiyut.com)-->
+<svg contentScriptType="text/ecmascript" width="500.0px" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="full"
+    zoomAndPan="magnify" contentStyleType="text/css" height="500.0px" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+    version="1.0">
+    <rect fill="#cccccc" x="235.0" width="30.0" height="440.0" y="35.0" stroke="#cccccc"/>
+    <rect x="-40.89328" y="182.8695" transform="matrix(0.9999999 -5.026295E-4 5.026295E-4 0.9999999 71.22399 -149.01765)"
+        fill="#cccccc" width="438.0386" height="36.344406" stroke="#cccccc"/>
+    <rect x="13.788582" y="525.8563" transform="matrix(0.0012172885 0.9999993 -0.9999993 0.0012172885 578.28357 23.464535)"
+        fill="#cccccc" width="77.055725" height="22.080688" stroke="#cccccc"/>
+    <rect x="16.294971" y="109.85906" transform="matrix(0.0012172885 0.9999993 -0.9999993 0.0012172885 578.28357 23.464535)"
+        fill="#cccccc" width="77.055725" height="22.080688" stroke="#cccccc"/>
+    <rect x="120.988525" y="241.78075" transform="matrix(-0.9999965 0.0026523701 -0.0026523701 -0.9999965 408.63736 717.8316)"
+        fill="#cccccc" width="77.055725" height="22.080688" stroke="#cccccc"/>
+</svg>
