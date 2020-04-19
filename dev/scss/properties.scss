@@ -1,10 +1,89 @@
-.propertie {
-    // background-color: rgb(207, 61, 61);
+@each $propertie in $properties-attribute {
+
+    $color-index: index($properties-attribute, $propertie);
+    $color: map.get($colors-1, "color-#{$color-index}");
+    $opacity: 0.4;
+    $hue: hue($color);
+    $saturation: saturation($color) * 0.4;
+    $lightness: lightness($color) * 0.5;
+    $background-color: hsla($hue, $saturation, $lightness, $opacity);
+
+    .propertie[data-tool='#{$propertie}'] {
+        position: relative;
+        grid-area: #{$propertie};
+        display: block;
+        width: 80%;
+        margin-bottom: 2px;
+        border-radius: 4px;
+        background-color: $background-color;
+    }
 }
 
+.propertie__label {
+    position: absolute;
+    left: 0px;
+    bottom: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 50%;
+    color: $text-color;
+    font-size: 0.7em;
+    font-weight: 700;
+    font-family: $font;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+}
 
-@each $propertie in $properties-attribute {
-    .propertie[data-tool='#{$propertie}'] {
-        grid-area: #{$propertie};
+.propertie__input {
+    position: absolute;
+    left: 5px;
+    bottom: 2px;
+    width: 95%;
+    height: 50%;
+    border: none;
+    border-radius: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    outline: none;
+    resize: none;
+    text-align:center;
+    color: $text-color;
+    font-weight: 700;
+    font-size: 0.8em;
+    font-family: $font;
+    background-color: rgba(0,0,0,0.4);
+
+    &:invalid {
+        box-shadow: none;
+    }
+
+    &:focus {
+        border: 1px solid rgba(0,0,0,0.4);
+        box-shadow: 0px 0px 6px 3px rgba(0,0,0,0.4);
+        background-color: rgba(0,0,0,0.4);
+        color: $text-color;
+    }
+
+    &:focus+.propertie__label,
+    &:valid+.propertie__label {
+        transform: translateY(-20px) translateX(-15%);
+        font-size: 0.5em;
+        color: rgba(255, 255, 255, 0.45);
+    }
+
+}
+
+@media all and (max-width: 1400px) {
+    .propertie__label {
+        font-size: 0.6em;
+    }
+}
+
+@media all and (max-width: 1200px) {
+    .propertie__label{
+        width: 90%;
+        font-size: 0.7em;
     }
 }
