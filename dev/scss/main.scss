@@ -10,6 +10,7 @@ $number-of-colors-to-pick: 40;
 $menu-background-color-1: rgba(0,0,0,0.7);
 $menu-background-color-2:rgba(0,0,0,0.7);
 $menu-gradient: linear-gradient(to right, $menu-background-color-1, $menu-background-color-2);
+$canvas-gradient: linear-gradient(-60deg, lighten($menu-background-color-1,25%), lighten($menu-background-color-2,10%));
 
 // colors must at least the same number as buttons in order to set proper buttons backgorund color.
 $colors-1:(
@@ -46,6 +47,7 @@ body {
     width: 100vw;
     min-width: 1200px;
     height: 100vh;
+    max-height: 100vh;
     min-height: 600px;
     background-image: url('../resources/background.jpg');
     background-position: center center;
@@ -62,4 +64,5 @@ body {
     font-size: 20px;
 }
 
-@import './menu.scss';
+@import './menu/menu.scss';
+@import './canvasContainer/mainContent.scss';

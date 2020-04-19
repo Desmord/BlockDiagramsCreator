@@ -1,0 +1,58 @@
+.scrollX-container {
+    $background-color: hsla(hue(map.get($colors-1, "color-#{length($colors-1)}")),
+        saturation(map.get($colors-1, "color-#{length($colors-1)}")) * 0.3,
+        lightness(map.get($colors-1, "color-#{length($colors-1)}")) * 0.3,
+        0.5);
+
+
+    grid-area: scrollX;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    display: block;
+    border-radius: 5px;
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.4);
+    background-color: $background-color;
+    overflow: hidden;
+}
+
+.scrollX-container__slide-line {
+    position: absolute;
+    left: 1%;
+    top: 48%;
+    width: 93%;
+    height: 4%;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.scrollX-container__silder {
+    position: absolute;
+    left: 1%;
+    top: 33%;
+    width: 90px;
+    height: 36%;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+
+    &:hover{
+        cursor: pointer;
+    background-color: rgba(255, 255, 255, 1);
+
+    }
+}
+
+.scrollX-container__X{
+    @include flex-box();
+
+    position: absolute;
+    right: 0%;
+    top: 1%;
+    width: 4%;
+    min-width: 40px;
+    height: 98%;
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0.2);
+    font-family: $font;
+    font-size: 0.7em;
+    color:$text-color
+}
