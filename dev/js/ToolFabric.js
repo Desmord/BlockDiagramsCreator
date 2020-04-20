@@ -53,7 +53,7 @@ class ToolFabric {
     }
 
     updateLineWidth(newLineWidth) {
-        this.getAllTools().forEach(tool => tool.updateLineWidth(newFineWidth));
+        this.getAllTools().forEach(tool => tool.updateLineWidth(newLineWidth));
     }
 }
 

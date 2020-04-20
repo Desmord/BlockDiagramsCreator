@@ -8,7 +8,9 @@ class Square {
     onMouseUp() { }
     updateColor(newColor) { }
     updateFontSize() { }
-    updateLineWidth(newLineWidth) { }
+    updateLineWidth(newLineWidth) {
+        console.log(`${this.name} odswierzam szerokosc lini ${newLineWidth}`);
+     }
 }
 
 module.exports = {

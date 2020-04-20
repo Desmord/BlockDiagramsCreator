@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
 const init = () => {
     const toolFabric = new ToolFabric();
     const canvasUI = new CanvasUI();
-    const menuUI = new MenuUI(toolFabric,canvasUI);
+    const menuUI = new MenuUI(toolFabric, canvasUI);
 
     setCanvasInitialProperties();
     setInitialPropertiesValue();
@@ -38,9 +38,14 @@ const clearCanvas = (canvas) => {
 
     context.fillStyle = `rgba(255,255,255,1)`;
     context.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+
+
+    context.fillStyle = `rgba(0,0,0,0.8)`;
+    context.fillRect(30, 30, 400, 400);
+
 }
 
-const setInitialPropertiesValue = ()=>{
+const setInitialPropertiesValue = () => {
     const canvas = CanvasContainerElements.canvas;
 
     MenuElements.canvasWidthInput.value = canvas.clientWidth;
@@ -48,7 +53,6 @@ const setInitialPropertiesValue = ()=>{
     MenuElements.canvasLineWidthInput.value = `5`;
     MenuElements.canvasFontSizeInput.value = `20`;
 }
-
 
 // NArysowaca jakis probny obrazek do tesow przesuniec resize i   innych
 

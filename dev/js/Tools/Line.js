@@ -27,7 +27,9 @@ class Line {
     onMouseUp() { }
     updateColor(newColor) { }
     updateFontSize() { }
-    updateLineWidth(newLineWidth) { }
+    updateLineWidth(newLineWidth) {
+        console.log(`${this.name} odswierzam szerokosc lini ${newLineWidth}`);
+     }
     //
     // setState - getState -> te do zapisu
 }

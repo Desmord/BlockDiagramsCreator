@@ -40,7 +40,7 @@
     position: absolute;
     left: 5px;
     bottom: 2px;
-    width: 95%;
+    width: 90%;
     height: 50%;
     border: none;
     border-radius: 5px;
@@ -73,6 +73,35 @@
         color: rgba(255, 255, 255, 0.45);
     }
 
+}
+
+.propertie__subbmit{
+    $color: map.get($colors-1, "color-3");
+    $opacity: 0.8;
+    $hue: hue($color);
+    $saturation: saturation($color) * 0.4;
+    $lightness: lightness($color) * 0.5;
+    $background-color: hsla($hue, $saturation, $lightness, $opacity);
+
+    @include flex-box();
+
+    position: absolute;
+    right: 6%;
+    bottom: 4%;
+    width: 15%;
+    height: 50%;
+    border-radius: 3px;
+    font-family: $font;
+    font-weight: 700;
+    font-size: 0.8em;
+    color: $text-color;
+    border: 1px solid rgba(0,0,0,0.5);
+    background-color: $background-color;
+
+    &:hover{
+        cursor: pointer;
+        background-color: lighten($background-color,10%);
+    }
 }
 
 @media all and (max-width: 1400px) {

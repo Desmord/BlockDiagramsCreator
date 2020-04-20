@@ -9,7 +9,9 @@ class Text {
     onMouseMove() { }
     onMouseUp() { }
     updateColor(newColor) { }
-    updateFontSize(newFontSize) { }
+    updateFontSize(newFontSize) {
+        console.log(`odswierzam font size ${newFontSize}`);
+     }
     updateLineWidth() { }
 }
 
