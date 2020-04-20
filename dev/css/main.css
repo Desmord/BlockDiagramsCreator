@@ -522,6 +522,8 @@ body {
   border-radius: 0px 5px 5px 0px;
   border-left: 1px solid rgba(0, 0, 0, 0.5);
   transition: all 0.2s ease;
+  pointer-events: none;
+  opacity: 0.1;
 }
 .menu__load:hover {
   cursor: pointer;

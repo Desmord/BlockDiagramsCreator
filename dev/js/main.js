@@ -18,7 +18,6 @@ const init = () => {
     setCanvasInitialProperties();
     setInitialPropertiesValue();
 
-
 }
 
 const setCanvasInitialProperties = () => {
@@ -55,7 +54,7 @@ const setInitialPropertiesValue = () => {
 }
 
 // NArysowaca jakis probny obrazek do tesow przesuniec resize i   innych
-
+// zrobic load pdf -- zrobic input na nazwe pliku do zapisu
 
 
 

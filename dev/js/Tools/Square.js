@@ -6,7 +6,10 @@ class Square {
     onMouseDown() { }
     onMouseMove() { }
     onMouseUp() { }
-    updateColor(newColor) { }
+    updateColor(newColor) {
+        console.log(`${this.name} color - ${newColor}`);
+
+    }
     updateFontSize() { }
     updateLineWidth(newLineWidth) {
         console.log(`${this.name} odswierzam szerokosc lini ${newLineWidth}`);

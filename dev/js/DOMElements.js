@@ -11,6 +11,7 @@ export const MenuElements = {
     paletteColors: document.querySelectorAll(`.menu__color`),
     textAreaContainer: document.querySelector(`.menu__text-container`),
     textArea: document.querySelector(`#text`),
+    textEraserButton: document.querySelector(`.menu__text-clear`),
     allPropertties: document.querySelectorAll(`.propertie`),
     properttiesSubbmitButtons: document.querySelectorAll(`.propertie__subbmit`),
     canvasWidthInput: document.querySelector(`.propertie[data-tool=width]`).childNodes[1],

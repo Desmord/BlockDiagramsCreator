@@ -1,4 +1,6 @@
+const jsPDF = require(`jspdf`);
 const MenuElements = require(`./DOMElements.js`).MenuElements;
+const CanvasElements = require(`./DOMElements.js`).CanvasContainerElements;
 
 class MenuUI {
     constructor(toolFabric, canvasUI) {
@@ -10,6 +12,10 @@ class MenuUI {
     init() {
         this.setToolsButtonClickEvent();
         this.setPropertiesEvents();
+        this.setTextEraserEvent();
+        this.setColorsClickEvent();
+        this.setSaveEvent();
+        this.setLoadEvent();
     }
 
     setToolsButtonClickEvent() {
@@ -150,13 +156,64 @@ class MenuUI {
         }).join(``);
     }
 
+    setTextEraserEvent() {
+        MenuElements.textEraserButton.addEventListener(`click`, () => {
+            MenuElements.textArea.value = ``;
+        })
+    }
+
+    setColorsClickEvent() {
+
+        MenuElements.paletteColors.forEach(colorCell => {
+            colorCell.addEventListener(`click`, e => {
+                const selectedColor = window.getComputedStyle(e.target, null).getPropertyValue(`background-color`);
+
+                this.toolFabric.updateColor(selectedColor);
+                this.setNewActiveColor(colorCell);
+            })
+        })
+    }
+
+    setNewActiveColor(newActiveColorCell) {
+        MenuElements.paletteColors.forEach(colorCell => {
+            colorCell.classList.remove(`menu__color--active`);
+        })
+        newActiveColorCell.classList.add(`menu__color--active`);
+    }
+
+
+    setSaveEvent() {
+
+        MenuElements.saveButton.addEventListener(`click`, () => {
+            const canvas = CanvasElements.canvas;
+            let width = canvas.width;
+            let height = canvas.height;
+            let pdf = null;
+
+            if (width > height) {
+                pdf = new jsPDF(`l`, `px`, [width, height]);
+            } else {
+                pdf = new jsPDF(`p`, `px`, [height, width]);
+            }
+
+            width = pdf.internal.pageSize.getWidth();
+            height = pdf.internal.pageSize.getHeight();
+
+            let img = canvas.toDataURL(`image/jpeg`, 1.0);
+            pdf.addImage(img, `JPEG`, 0, 0, width, height);
+            pdf.save(`Schematy.pdf`)
+        })
+
+    }
+
+    setLoadEvent() {
+        MenuElements.loadButton.addEventListener(`click`, () => {
+            console.log(`Wczytujemy`);
+        })
+    }
+
 }
 
 module.exports = {
     MenuUI
 }
-
-// properties
-// kolor -- tools fabric update color
-//save load
-// zdarzenie gumki text arey

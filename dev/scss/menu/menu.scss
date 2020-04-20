@@ -213,6 +213,14 @@
         color: lighten($text-color,80%);
         background-color:  $background-color-hover;
     }
+    // -----------------------------
+    // -----------------------------
+    //  tymczasowo od zrobienbia wczytywania
+    pointer-events: none;
+    opacity:0.1;
+    // -----------------------------
+    // -----------------------------
+    // -----------------------------
 
 }
 
