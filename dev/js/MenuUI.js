@@ -97,8 +97,10 @@ class MenuUI {
             properttie.children[0].addEventListener(`keyup`, e => {
                 e.target.value = this.filtrNumbers(e.target.value);
             })
+
             // click event
-            properttie.addEventListener(`click`, e => {
+            const properttieSubbmitButton = properttie.children[2];
+            properttieSubbmitButton.addEventListener(`click`, e => {
 
                 const tool = properttie.getAttribute(`data-tool`);
                 const input = properttie.children[0];

@@ -3,6 +3,7 @@ import '../css/main.css';
 const MenuElements = require(`./DOMElements.js`).MenuElements;
 const CanvasContainerElements = require(`./DOMElements.js`).CanvasContainerElements;
 const ToolFabric = require(`./ToolFabric.js`).ToolFabric;
+const CanvasStateManager = require(`./CanvasStateManager.js`).CanvasStateManager;
 const CanvasUI = require(`./CanvasUI.js`).CanvasUI;
 const MenuUI = require(`./MenuUI`).MenuUI;
 
@@ -11,8 +12,9 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 const init = () => {
+    const cavansStateManager = new CanvasStateManager();
     const toolFabric = new ToolFabric();
-    const canvasUI = new CanvasUI();
+    const canvasUI = new CanvasUI(cavansStateManager);
     const menuUI = new MenuUI(toolFabric, canvasUI);
 
     setCanvasInitialProperties();
