@@ -1,5 +1,6 @@
 import '../css/main.css';
 
+const Line = require(`./Tools/Line`).Line;
 const MenuElements = require(`./DOMElements.js`).MenuElements;
 const CanvasContainerElements = require(`./DOMElements.js`).CanvasContainerElements;
 const ToolFabric = require(`./ToolFabric.js`).ToolFabric;
@@ -12,9 +13,10 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 const init = () => {
+    const initialTool = new Line();
     const cavansStateManager = new CanvasStateManager();
-    const toolFabric = new ToolFabric();
-    const canvasUI = new CanvasUI(cavansStateManager);
+    const toolFabric = new ToolFabric(initialTool);
+    const canvasUI = new CanvasUI(cavansStateManager,initialTool);
     const menuUI = new MenuUI(toolFabric, canvasUI);
 
     setCanvasInitialProperties();

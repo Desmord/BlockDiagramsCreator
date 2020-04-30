@@ -22,9 +22,16 @@ class Line {
         }
     }
 
-    onMouseDown() { }
-    onMouseMove() { }
-    onMouseUp() { }
+    onMouseDown() {
+        console.log(`rysujemy linie`);
+     }
+    onMouseMove() {
+        // if is drawing
+        console.log(`przesuwamy linie`);
+    }
+    onMouseUp() {
+        console.log(`konczymy linie`);
+     }
     updateColor(newColor) {
         console.log(`${this.name} color - ${newColor}`);
 

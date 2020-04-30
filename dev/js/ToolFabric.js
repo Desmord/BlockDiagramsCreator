@@ -6,8 +6,8 @@ const Daimond = require(`./Tools/Daimond.js`).Daimond;
 const Square = require(`./Tools/Square`).Square;
 
 class ToolFabric {
-    constructor() {
-        this.line = new Line();
+    constructor(initialTool) {
+        this.line = initialTool;
         this.arrow = new Arrow();
         this.text = new Text();
         this.eraser = new Eraser();

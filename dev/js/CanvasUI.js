@@ -1,10 +1,11 @@
 const CanvasElements = require(`./DOMElements.js`).CanvasContainerElements;
 
 class CanvasUI {
-    constructor(canvasStateManager) {
-        this.tool = null;
+    constructor(canvasStateManager, initialTool) {
+        this.tool = initialTool;
         this.canvasStateManager = canvasStateManager;
         this.scrollingX = false;
+        this.scrollingY = false;
         this.init();
     }
 
@@ -12,6 +13,8 @@ class CanvasUI {
         this.setCanvasMouseHoverEvent();
         this.setResetButtonClickEvent();
         this.setScrollXEvent();
+        this.setScrollYEvent();
+        this.setCanvasPaintEvents();
     }
 
     setTool(tool) {
@@ -119,10 +122,62 @@ class CanvasUI {
         }
     }
 
-    // tools
-    // on clikc
-    //on move
-    // on up
+    setScrollYEvent(){
+        CanvasElements.scrollY.container.addEventListener(`mousedown`, (e) => {
+            this.scrollingY = true;
+        })
+
+        CanvasElements.scrollY.container.addEventListener(`mousemove`, (e) => {
+
+            if (this.scrollingY) {
+
+                let scroll = e.clientY - e.target.parentElement.offsetTop -
+                    (CanvasElements.scrollY.slider.clientHeight / 2);
+
+                if (this.isNotScrollYOutOfCanvas(scroll)) {
+                    let padding = 37;
+                    let scrollPercent = parseInt(((scroll / CanvasElements.scrollY.sliderLine.clientHeight) * 100));
+                    let availableScrollLength = padding + CanvasElements.canvas.clientHeight - CanvasElements.canvasContainer.clientHeight;
+                    let scrollCanvasAmount = parseInt((scrollPercent / 100) * availableScrollLength)
+
+                    CanvasElements.scrollY.slider.style.top = `${scroll}px`;
+                    CanvasElements.canvasScrollContainer.scrollTop = `${scrollCanvasAmount}`;
+                    CanvasElements.scrollY.label.innerHTML = `${scrollCanvasAmount}px`;
+                }
+
+            }
+        })
+
+        CanvasElements.scrollY.container.addEventListener(`mouseup`, (e) => {
+            this.scrollingY = false;
+        })
+
+        CanvasElements.scrollY.container.addEventListener(`mouseleave`, (e) => {
+            this.scrollingY = false;
+        })
+    }
+
+
+    isNotScrollYOutOfCanvas(scroll){
+        if (scroll < CanvasElements.scrollY.sliderLine.offsetTop ||
+            scroll > CanvasElements.scrollY.sliderLine.clientHeight +
+            CanvasElements.scrollY.sliderLine.offsetTop -
+            CanvasElements.scrollY.slider.clientHeight
+        ){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    setCanvasPaintEvents(){
+
+        CanvasElements.canvas.addEventListener(`mousedown`, this.tool.onMouseDown);
+        CanvasElements.canvas.addEventListener(`mousemove`,this.tool.onMouseMove);
+        CanvasElements.canvas.addEventListener(`mouseup`,this.tool.onMouseUp);
+
+    }
+
 
 }
 
