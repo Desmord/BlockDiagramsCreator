@@ -23,16 +23,20 @@ export const MenuElements = {
 }
 
 export const CanvasContainerElements = {
+    canvasContainer: document.querySelector(`.canvas-container`),
+    canvasScrollContainer: document.querySelector(`.canvas-container__scroll-container`),
     canvas:document.querySelector(`.canvas-container__canvas`),
     scrollX:{
         container:document.querySelector(`.scrollX-container`),
         slider:document.querySelector(`.scrollX-container__silder`),
-        label:document.querySelector(`.scrollX-container__X`)
+        label:document.querySelector(`.scrollX-container__X`),
+        sliderLine: document.querySelector(`.scrollX-container__slide-line`)
     },
     scrollY:{
         container:document.querySelector(`.scrollY-container`),
         slider:document.querySelector(`.scrollY-container__silder`),
-        label:document.querySelector(`.scrollY-container__Y`)
+        label:document.querySelector(`.scrollY-container__Y`),
+        sliderLine: document.querySelector(`.scrollY-container__slide-line`)
     },
     backButton: document.querySelector(`.main-container__un-do`),
     forwardButton:document.querySelector(`.main-container__front`),
