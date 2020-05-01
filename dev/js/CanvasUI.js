@@ -10,7 +10,7 @@ class CanvasUI {
     }
 
     init() {
-        this.setCanvasMouseHoverEvent();
+        this.setUpdateMouseCoordinatesEvent();
         this.setResetButtonClickEvent();
         this.setScrollXEvent();
         this.setScrollYEvent();
@@ -45,7 +45,7 @@ class CanvasUI {
 
     }
 
-    setCanvasMouseHoverEvent() {
+    setUpdateMouseCoordinatesEvent() {
         CanvasElements.canvas.addEventListener(`mousemove`, (e) => {
             let left =
                 e.clientX +
@@ -176,9 +176,9 @@ class CanvasUI {
 
     setCanvasPaintEvents() {
 
-        CanvasElements.canvas.addEventListener(`mousedown`, this.tool.onMouseDown);
-        CanvasElements.canvas.addEventListener(`mousemove`, this.tool.onMouseMove);
-        CanvasElements.canvas.addEventListener(`mouseup`, this.tool.onMouseUp);
+        CanvasElements.canvas.addEventListener(`mousedown`, this.tool.onMouseDown.bind(this.tool));
+        CanvasElements.canvas.addEventListener(`mousemove`, this.tool.onMouseMove.bind(this.tool));
+        CanvasElements.canvas.addEventListener(`mouseup`, this.tool.onMouseUp.bind(this.tool));
 
     }
 

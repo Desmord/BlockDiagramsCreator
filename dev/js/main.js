@@ -15,22 +15,21 @@ window.addEventListener('DOMContentLoaded', () => {
 const init = () => {
     // przekazanie stateManagera do toolFabric by je przekazac tworzonym narzedzia
 
-    const initialTool = new Line();
     const cavansStateManager = new CanvasStateManager();
-    const toolFabric = new ToolFabric(initialTool);
+    const initialTool = new Line(cavansStateManager);
+    const toolFabric = new ToolFabric(initialTool,cavansStateManager);
     const canvasUI = new CanvasUI(cavansStateManager,initialTool);
     const menuUI = new MenuUI(toolFabric, canvasUI);
 
     setCanvasInitialProperties();
     setInitialPropertiesValue();
+    cavansStateManager.addState();
 
 }
 
 const setCanvasInitialProperties = () => {
-    const canvas = CanvasContainerElements.canvas;
-
-    setCanvasSize(canvas);
-    clearCanvas(canvas);
+    setCanvasSize(CanvasContainerElements.canvas);
+    clearCanvas(CanvasContainerElements.canvas);
 }
 
 const setCanvasSize = (canvas) => {
@@ -43,11 +42,6 @@ const clearCanvas = (canvas) => {
 
     context.fillStyle = `rgba(255,255,255,1)`;
     context.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-
-
-    context.fillStyle = `rgba(0,0,0,0.8)`;
-    context.fillRect(30, 30, 400, 400);
-
 }
 
 const setInitialPropertiesValue = () => {
@@ -59,11 +53,5 @@ const setInitialPropertiesValue = () => {
     MenuElements.canvasFontSizeInput.value = `20`;
 }
 
-// NArysowaca jakis probny obrazek do tesow przesuniec resize i   innych
+
 // zrobic load pdf -- zrobic input na nazwe pliku do zapisu
-
-
-
-//W CanvasUI resize update wielkosci canvasu i zapis i wczytanie stanu zeby przy zmianie nie resetował
-     //  ustawienie rozmiaru fontu i szerokosci lini w inputahc
-    // update properties values

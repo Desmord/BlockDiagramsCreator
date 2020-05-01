@@ -6,13 +6,13 @@ const Daimond = require(`./Tools/Daimond.js`).Daimond;
 const Square = require(`./Tools/Square`).Square;
 
 class ToolFabric {
-    constructor(initialTool) {
+    constructor(initialTool,cavansStateManager) {
         this.line = initialTool;
-        this.arrow = new Arrow();
-        this.text = new Text();
-        this.eraser = new Eraser();
-        this.daimond = new Daimond();
-        this.square = new Square();
+        this.arrow = new Arrow(cavansStateManager);
+        this.text = new Text(cavansStateManager);
+        this.eraser = new Eraser(cavansStateManager);
+        this.daimond = new Daimond(cavansStateManager);
+        this.square = new Square(cavansStateManager);
     }
 
     getAllTools() {

@@ -24,13 +24,13 @@ class MenuUI {
 
             button.addEventListener(`click`, () => {
                 const isTextClicked = button.getAttribute(`data-tool`) == `text` ? true : false;
+                isTextClicked ? this.showTextContainer() : this.showColorPalette();
 
                 this.canvasUI.setTool(
                     this.toolFabric.getTool(
                         button.getAttribute(`data-tool`))
                 );
                 this.setNewActiveButton(button);
-                isTextClicked ? this.showTextContainer() : this.showColorPalette();
             })
 
         })
