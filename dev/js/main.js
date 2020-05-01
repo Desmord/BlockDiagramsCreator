@@ -13,6 +13,8 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 const init = () => {
+    // przekazanie stateManagera do toolFabric by je przekazac tworzonym narzedzia
+
     const initialTool = new Line();
     const cavansStateManager = new CanvasStateManager();
     const toolFabric = new ToolFabric(initialTool);

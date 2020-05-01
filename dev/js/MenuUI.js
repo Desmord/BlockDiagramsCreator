@@ -93,47 +93,59 @@ class MenuUI {
     setPropertiesEvents() {
 
         MenuElements.allPropertties.forEach(properttie => {
-            // keyup event
-            properttie.children[0].addEventListener(`keyup`, e => {
+            const properttieInput = properttie.children[0]
+            const properttieSubbmitButton = properttie.children[2];
+
+            // keyup -> filter value
+            properttieInput.addEventListener(`keyup`, e => {
                 e.target.value = this.filtrNumbers(e.target.value);
             })
 
-            // click event
-            const properttieSubbmitButton = properttie.children[2];
-            properttieSubbmitButton.addEventListener(`click`, e => {
-
-                const tool = properttie.getAttribute(`data-tool`);
-                const input = properttie.children[0];
-
-                switch (tool) {
-                    case `width`:
-                        const widthLimit = 100;
-
-                        this.isValueToSmall(input.value, widthLimit) ? input.value = widthLimit : ``;
-                        this.canvasUI.updateCanvasWidth(input.value);
-                        break;
-                    case `height`:
-                        const heightLimit = 100;
-
-                        this.isValueToSmall(input.value, heightLimit) ? input.value = heightLimit : ``;
-                        this.canvasUI.updateCanvasHeight(input.value);
-                        break;
-                    case `line-width`:
-                        const lineWidthLimit = 1;
-
-                        this.isValueToSmall(input.value, lineWidthLimit) ? input.value = lineWidthLimit : ``;
-                        this.toolFabric.updateLineWidth(input.value);
-                        break;
-                    case `font-size`:
-                        const fontSizeLimit = 5;
-
-                        this.isValueToSmall(input.value, fontSizeLimit) ? input.value = fontSizeLimit : ``;
-                        this.toolFabric.updateFontSize(input.value);
-                        break;
+            // enter
+            properttieInput.addEventListener(`keydown`, e=>{
+                if(e.key == `Enter`){
+                    this.propertiesSubbmit(properttie);
                 }
+            })
 
+            // click
+            properttieSubbmitButton.addEventListener(`click`, e => {
+                this.propertiesSubbmit(properttie);
             })
         })
+
+    }
+
+    propertiesSubbmit(properttie) {
+        const tool = properttie.getAttribute(`data-tool`);
+        const input = properttie.children[0];
+
+        switch (tool) {
+            case `width`:
+                const widthLimit = 100;
+
+                this.isValueToSmall(input.value, widthLimit) ? input.value = widthLimit : ``;
+                this.canvasUI.updateCanvasWidth(input.value);
+                break;
+            case `height`:
+                const heightLimit = 100;
+
+                this.isValueToSmall(input.value, heightLimit) ? input.value = heightLimit : ``;
+                this.canvasUI.updateCanvasHeight(input.value);
+                break;
+            case `line-width`:
+                const lineWidthLimit = 1;
+
+                this.isValueToSmall(input.value, lineWidthLimit) ? input.value = lineWidthLimit : ``;
+                this.toolFabric.updateLineWidth(input.value);
+                break;
+            case `font-size`:
+                const fontSizeLimit = 5;
+
+                this.isValueToSmall(input.value, fontSizeLimit) ? input.value = fontSizeLimit : ``;
+                this.toolFabric.updateFontSize(input.value);
+                break;
+        }
 
     }
 

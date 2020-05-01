@@ -95,7 +95,11 @@ class CanvasUI {
 
                     CanvasElements.scrollX.slider.style.left = `${scroll}px`;
                     CanvasElements.canvasScrollContainer.scrollLeft = `${scrollCanvasAmount}`;
-                    CanvasElements.scrollX.label.innerHTML = `${scrollCanvasAmount}px`;
+                    if (scrollCanvasAmount > 0){
+                        CanvasElements.scrollX.label.innerHTML = `${scrollCanvasAmount}px`;
+                    }else{
+                        CanvasElements.scrollX.label.innerHTML = `0px`;
+                    }
                 }
 
             }
@@ -110,19 +114,19 @@ class CanvasUI {
         })
     }
 
-    isNotScrollXOutOfCanvas(scroll){
+    isNotScrollXOutOfCanvas(scroll) {
         if (scroll < CanvasElements.scrollX.sliderLine.offsetLeft ||
             scroll > CanvasElements.scrollX.sliderLine.clientWidth +
             CanvasElements.scrollX.sliderLine.offsetLeft -
             CanvasElements.scrollX.slider.clientWidth
-        ){
+        ) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }
 
-    setScrollYEvent(){
+    setScrollYEvent() {
         CanvasElements.scrollY.container.addEventListener(`mousedown`, (e) => {
             this.scrollingY = true;
         })
@@ -158,23 +162,23 @@ class CanvasUI {
     }
 
 
-    isNotScrollYOutOfCanvas(scroll){
+    isNotScrollYOutOfCanvas(scroll) {
         if (scroll < CanvasElements.scrollY.sliderLine.offsetTop ||
             scroll > CanvasElements.scrollY.sliderLine.clientHeight +
             CanvasElements.scrollY.sliderLine.offsetTop -
             CanvasElements.scrollY.slider.clientHeight
-        ){
+        ) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }
 
-    setCanvasPaintEvents(){
+    setCanvasPaintEvents() {
 
         CanvasElements.canvas.addEventListener(`mousedown`, this.tool.onMouseDown);
-        CanvasElements.canvas.addEventListener(`mousemove`,this.tool.onMouseMove);
-        CanvasElements.canvas.addEventListener(`mouseup`,this.tool.onMouseUp);
+        CanvasElements.canvas.addEventListener(`mousemove`, this.tool.onMouseMove);
+        CanvasElements.canvas.addEventListener(`mouseup`, this.tool.onMouseUp);
 
     }
 
