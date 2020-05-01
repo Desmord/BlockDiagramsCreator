@@ -17,12 +17,11 @@ class Line {
     }
 
     onMouseDown(e) {
-
         this.startPoint.x = this.getMouseHorizontalPosition(e);
         this.startPoint.y = this.getMouseVerticalPosition(e);
         this.isDrawing = true;
-
     }
+
     onMouseMove(e) {
         if (this.isDrawing) {
             this.clearCanvas();
@@ -30,6 +29,7 @@ class Line {
             this.drawLine(e)
         }
     }
+
     onMouseUp(e) {
         this.isDrawing = false;
         this.drawLine(e);
@@ -41,9 +41,14 @@ class Line {
         this.context.lineWidth = this.lineWidth;
 
         this.context.beginPath();
-        this.context.moveTo(this.startPoint.x,this.startPoint.y);
-        this.context.lineTo(this.getMouseHorizontalPosition(e),this.getMouseVerticalPosition(e));
+        this.context.moveTo(this.startPoint.x, this.startPoint.y);
+        this.context.lineTo(this.getMouseHorizontalPosition(e), this.getMouseVerticalPosition(e));
         this.context.stroke();
+    }
+
+    stopDrawing() {
+        this.isDrawing = false;
+        this.cavansStateManager.addState();
     }
 
     clearCanvas() {
@@ -62,7 +67,7 @@ class Line {
     }
 
     getCanvasLeftMargin(e) {
-        let padding = 30;
+        const padding = 30;
         return e.target.parentElement.offsetLeft +
             e.target.parentElement.parentElement.offsetLeft + padding
     }

@@ -15,6 +15,7 @@ class CanvasUI {
         this.setScrollXEvent();
         this.setScrollYEvent();
         this.setCanvasPaintEvents();
+        this.setCanvasMouseLeaveEvent();
     }
 
     setTool(tool) {
@@ -72,6 +73,7 @@ class CanvasUI {
 
             context.fillStyle = `rgb(255,255,255)`;
             context.fillRect(0, 0, CanvasElements.canvas.width, CanvasElements.canvas.height);
+            this.canvasStateManager.addState();
         })
     }
 
@@ -95,9 +97,9 @@ class CanvasUI {
 
                     CanvasElements.scrollX.slider.style.left = `${scroll}px`;
                     CanvasElements.canvasScrollContainer.scrollLeft = `${scrollCanvasAmount}`;
-                    if (scrollCanvasAmount > 0){
+                    if (scrollCanvasAmount > 0) {
                         CanvasElements.scrollX.label.innerHTML = `${scrollCanvasAmount}px`;
-                    }else{
+                    } else {
                         CanvasElements.scrollX.label.innerHTML = `0px`;
                     }
                 }
@@ -176,12 +178,23 @@ class CanvasUI {
 
     setCanvasPaintEvents() {
 
-        CanvasElements.canvas.addEventListener(`mousedown`, this.tool.onMouseDown.bind(this.tool));
-        CanvasElements.canvas.addEventListener(`mousemove`, this.tool.onMouseMove.bind(this.tool));
-        CanvasElements.canvas.addEventListener(`mouseup`, this.tool.onMouseUp.bind(this.tool));
+        CanvasElements.canvas.addEventListener(`mousedown`, (e) => {
+            this.tool.onMouseDown(e);
+        })
+        CanvasElements.canvas.addEventListener(`mousemove`, e => {
+            this.tool.onMouseMove(e)
+        });
+        CanvasElements.canvas.addEventListener(`mouseup`, e => {
+            this.tool.onMouseUp(e)
+        });
 
     }
 
+    setCanvasMouseLeaveEvent() {
+        CanvasElements.canvas.addEventListener(`mouseleave`, () => {
+            this.tool.stopDrawing();
+        })
+    }
 
 }
 

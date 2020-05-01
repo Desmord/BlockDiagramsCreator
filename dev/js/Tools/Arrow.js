@@ -3,9 +3,19 @@ class Arrow {
         this.name= `arrow`
     }
 
-    onMouseDown() { }
-    onMouseMove() { }
-    onMouseUp() { }
+    onMouseDown() {
+        console.log(`arrow`);
+     }
+    onMouseMove() {
+        console.log(`arrow`);
+
+     }
+    onMouseUp() {
+        console.log(`arrow`);
+
+     }
+    stopDrawing(){}
+
     updateColor(newColor) {
         console.log(`${this.name} color - ${newColor}`);
 

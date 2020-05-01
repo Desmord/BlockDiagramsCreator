@@ -8,6 +8,8 @@ class Text {
     onMouseDown() { }
     onMouseMove() { }
     onMouseUp() { }
+
+    stopDrawing(){}
     updateColor(newColor) {
         console.log(`${this.name} color - ${newColor}`);
     }
