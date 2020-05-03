@@ -36,29 +36,31 @@ class Square {
     }
 
     drawSquare(e) {
-        this.context.strokeStyle = this.color;
-        this.context.lineWidth = this.lineWidth;
+        window.requestAnimationFrame(() => {
+            this.context.strokeStyle = this.color;
+            this.context.lineWidth = this.lineWidth;
 
-         // left
-         this.context.beginPath();
-         this.context.moveTo(this.startPoint.x, this.startPoint.y);
-         this.context.lineTo(this.startPoint.x, this.getMouseVerticalPosition(e));
-         this.context.stroke();
-         //top
-         this.context.beginPath();
-         this.context.moveTo(this.startPoint.x, this.startPoint.y);
-         this.context.lineTo(this.getMouseHorizontalPosition(e), this.startPoint.y);
-         this.context.stroke();
-         // right
-         this.context.beginPath();
-         this.context.moveTo(this.getMouseHorizontalPosition(e), this.startPoint.y);
-         this.context.lineTo(this.getMouseHorizontalPosition(e), this.getMouseVerticalPosition(e));
-         this.context.stroke();
-         // bottom
-         this.context.beginPath();
-         this.context.moveTo(this.startPoint.x, this.getMouseVerticalPosition(e));
-         this.context.lineTo(this.getMouseHorizontalPosition(e), this.getMouseVerticalPosition(e));
-         this.context.stroke();
+            // left
+            this.context.beginPath();
+            this.context.moveTo(this.startPoint.x + (parseInt(this.lineWidth / 2)), this.startPoint.y);
+            this.context.lineTo(this.startPoint.x, this.getMouseVerticalPosition(e));
+            this.context.stroke();
+            //top
+            this.context.beginPath();
+            this.context.moveTo(this.startPoint.x, this.startPoint.y + (parseInt(this.lineWidth / 2)));
+            this.context.lineTo(this.getMouseHorizontalPosition(e), this.startPoint.y);
+            this.context.stroke();
+            // right
+            this.context.beginPath();
+            this.context.moveTo(this.getMouseHorizontalPosition(e) - (parseInt(this.lineWidth / 2)), this.startPoint.y - (parseInt(this.lineWidth / 2)));
+            this.context.lineTo(this.getMouseHorizontalPosition(e), this.getMouseVerticalPosition(e));
+            this.context.stroke();
+            // bottom
+            this.context.beginPath();
+            this.context.moveTo(this.startPoint.x, this.getMouseVerticalPosition(e) - (parseInt(this.lineWidth / 2)));
+            this.context.lineTo(this.getMouseHorizontalPosition(e), this.getMouseVerticalPosition(e) - (parseInt(this.lineWidth / 2)));
+            this.context.stroke();
+        })
     }
 
     stopDrawing() {

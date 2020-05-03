@@ -37,13 +37,15 @@ class Line {
     }
 
     drawLine(e) {
-        this.context.strokeStyle = this.color;
-        this.context.lineWidth = this.lineWidth;
+        window.requestAnimationFrame(() => {
+            this.context.strokeStyle = this.color;
+            this.context.lineWidth = this.lineWidth;
 
-        this.context.beginPath();
-        this.context.moveTo(this.startPoint.x, this.startPoint.y);
-        this.context.lineTo(this.getMouseHorizontalPosition(e), this.getMouseVerticalPosition(e));
-        this.context.stroke();
+            this.context.beginPath();
+            this.context.moveTo(this.startPoint.x, this.startPoint.y);
+            this.context.lineTo(this.getMouseHorizontalPosition(e), this.getMouseVerticalPosition(e));
+            this.context.stroke();
+        });
     }
 
     stopDrawing() {

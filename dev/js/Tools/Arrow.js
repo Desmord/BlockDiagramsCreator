@@ -36,57 +36,59 @@ class Arrow {
     }
 
     drawArrow(e) {
-        let distance = Math.sqrt(Math.pow(this.getMouseHorizontalPosition(e) - this.startPoint.x, 2) +
-            Math.pow(this.getMouseVerticalPosition(e) - this.startPoint.y, 2)),
-            angle = parseInt(((Math.atan2(this.getMouseVerticalPosition(e) - this.startPoint.y,
-                this.getMouseHorizontalPosition(e) - this.startPoint.x) *
-                (180 / Math.PI)) + 360) % 360);
+        window.requestAnimationFrame(() => {
+            let distance = Math.sqrt(Math.pow(this.getMouseHorizontalPosition(e) - this.startPoint.x, 2) +
+                Math.pow(this.getMouseVerticalPosition(e) - this.startPoint.y, 2)),
+                angle = parseInt(((Math.atan2(this.getMouseVerticalPosition(e) - this.startPoint.y,
+                    this.getMouseHorizontalPosition(e) - this.startPoint.x) *
+                    (180 / Math.PI)) + 360) % 360);
 
-        this.context.strokeStyle = this.color;
-        this.context.lineWidth = this.lineWidth;
-        this.context.save();
+            this.context.strokeStyle = this.color;
+            this.context.lineWidth = this.lineWidth;
+            this.context.save();
 
-        if (this.startPoint.x > this.getMouseHorizontalPosition(e)) {
-            if (this.startPoint.y > this.getMouseVerticalPosition(e)) {
-                this.context.translate(Math.abs((
-                    Math.abs(this.getMouseHorizontalPosition(e) - this.startPoint.x) / 2) - this.startPoint.x),
-                    Math.abs((Math.abs(this.getMouseVerticalPosition(e) - this.startPoint.y) / 2) - this.startPoint.y));
+            if (this.startPoint.x > this.getMouseHorizontalPosition(e)) {
+                if (this.startPoint.y > this.getMouseVerticalPosition(e)) {
+                    this.context.translate(Math.abs((
+                        Math.abs(this.getMouseHorizontalPosition(e) - this.startPoint.x) / 2) - this.startPoint.x),
+                        Math.abs((Math.abs(this.getMouseVerticalPosition(e) - this.startPoint.y) / 2) - this.startPoint.y));
+                } else {
+                    this.context.translate(Math.abs((
+                        Math.abs(this.getMouseHorizontalPosition(e) - this.startPoint.x) / 2) - this.startPoint.x),
+                        (Math.abs(this.getMouseVerticalPosition(e) - this.startPoint.y) / 2) + this.startPoint.y);
+                }
             } else {
-                this.context.translate(Math.abs((
-                    Math.abs(this.getMouseHorizontalPosition(e) - this.startPoint.x) / 2) - this.startPoint.x),
-                    (Math.abs(this.getMouseVerticalPosition(e) - this.startPoint.y) / 2) + this.startPoint.y);
+                if (this.startPoint.y > this.getMouseVerticalPosition(e)) {
+                    this.context.translate((
+                        Math.abs(this.getMouseHorizontalPosition(e) - this.startPoint.x) / 2) + this.startPoint.x,
+                        Math.abs((Math.abs(this.getMouseVerticalPosition(e) - this.startPoint.y) / 2) - this.startPoint.y));
+
+                } else {
+                    this.context.translate((
+                        Math.abs(this.getMouseHorizontalPosition(e) - this.startPoint.x) / 2) + this.startPoint.x,
+                        (Math.abs(this.getMouseVerticalPosition(e) - this.startPoint.y) / 2) + this.startPoint.y);
+                }
             }
-        } else {
-            if (this.startPoint.y > this.getMouseVerticalPosition(e)) {
-                this.context.translate((
-                    Math.abs(this.getMouseHorizontalPosition(e) - this.startPoint.x) / 2) + this.startPoint.x,
-                    Math.abs((Math.abs(this.getMouseVerticalPosition(e) - this.startPoint.y) / 2) - this.startPoint.y));
 
-            } else {
-                this.context.translate((
-                    Math.abs(this.getMouseHorizontalPosition(e) - this.startPoint.x) / 2) + this.startPoint.x,
-                    (Math.abs(this.getMouseVerticalPosition(e) - this.startPoint.y) / 2) + this.startPoint.y);
-            }
-        }
+            this.context.rotate(angle * Math.PI / 180);
+            // main line
+            this.context.beginPath();
+            this.context.moveTo(-1 * (distance / 2), 0);
+            this.context.lineTo(distance / 2, 0);
+            this.context.stroke();
+            // right arm
+            this.context.beginPath();
+            this.context.moveTo((distance / 2) - distance / 10, distance / 20);
+            this.context.lineTo(distance / 2, 0);
+            this.context.stroke();
+            // left arm
+            this.context.beginPath();
+            this.context.moveTo((distance / 2) - distance / 10, -1 * (distance / 20));
+            this.context.lineTo(distance / 2, 0);
+            this.context.stroke();
 
-        this.context.rotate(angle * Math.PI / 180);
-        // main line
-        this.context.beginPath();
-        this.context.moveTo(-1 * (distance / 2), 0);
-        this.context.lineTo(distance / 2, 0);
-        this.context.stroke();
-        // right arm
-        this.context.beginPath();
-        this.context.moveTo((distance / 2) - distance / 10, distance / 20);
-        this.context.lineTo(distance / 2, 0);
-        this.context.stroke();
-        // left arm
-        this.context.beginPath();
-        this.context.moveTo((distance / 2) - distance / 10, -1 * (distance / 20));
-        this.context.lineTo(distance / 2, 0);
-        this.context.stroke();
-
-        this.context.restore();
+            this.context.restore();
+        })
     }
 
     stopDrawing() {
