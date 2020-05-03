@@ -20,8 +20,6 @@ class Eraser {
         this.startPoint.x = this.getMouseHorizontalPosition(e);
         this.startPoint.y = this.getMouseVerticalPosition(e);
         this.isDrawing = true;
-        // this.clearCanvas();
-        // this.restoreState();
     }
 
     onMouseMove(e) {
@@ -37,7 +35,6 @@ class Eraser {
 
         }
         this.cavansStateManager.addState();
-
     }
 
     onMouseUp(e) {

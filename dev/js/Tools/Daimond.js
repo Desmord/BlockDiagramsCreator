@@ -41,8 +41,8 @@ class Daimond {
 
             // left - top
             this.context.beginPath();
-            this.context.moveTo(this.startPoint.x + (parseInt(this.lineWidth / 2)), this.startPoint.y + ((this.getMouseVerticalPosition(e) - this.startPoint.y) / 2));
-            this.context.lineTo(this.startPoint.x + (parseInt(this.lineWidth / 2)) + ((this.getMouseHorizontalPosition(e) - this.startPoint.x) / 2), this.startPoint.y);
+            this.context.moveTo(this.startPoint.x, this.startPoint.y + ((this.getMouseVerticalPosition(e) - this.startPoint.y) / 2));
+            this.context.lineTo(this.startPoint.x + ((this.getMouseHorizontalPosition(e) - this.startPoint.x) / 2), this.startPoint.y);
             this.context.stroke();
             // /left - bottom
             this.context.beginPath();
@@ -56,8 +56,8 @@ class Daimond {
             this.context.stroke();
             // right - bottom
             this.context.beginPath();
-            this.context.moveTo(this.startPoint.x - (parseInt(this.lineWidth / 2)) + ((this.getMouseHorizontalPosition(e) - this.startPoint.x) / 2), this.getMouseVerticalPosition(e));
-            this.context.lineTo(this.getMouseHorizontalPosition(e) - (parseInt(this.lineWidth / 2)), this.startPoint.y + ((this.getMouseVerticalPosition(e) - this.startPoint.y) / 2));
+            this.context.moveTo(this.startPoint.x + ((this.getMouseHorizontalPosition(e) - this.startPoint.x) / 2), this.getMouseVerticalPosition(e));
+            this.context.lineTo(this.getMouseHorizontalPosition(e), this.startPoint.y + ((this.getMouseVerticalPosition(e) - this.startPoint.y) / 2));
             this.context.stroke();
         })
     }
