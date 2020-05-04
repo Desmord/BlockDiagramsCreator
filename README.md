@@ -8,6 +8,7 @@ To run program you must run script "webpack-dev-server --mode development --cont
 
 ## Noticed bugs
 For future improvement:
+
     - Correct mouse position after canvas resize event.
     - Improving appearaance of figures.
     - Creating asyc method to save new canvas state. Currently if we draw too quickly new items may not register correctly.
