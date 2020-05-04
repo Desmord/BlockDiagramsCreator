@@ -16,6 +16,8 @@ class CanvasUI {
         this.setScrollYEvent();
         this.setCanvasPaintEvents();
         this.setCanvasMouseLeaveEvent();
+        this.setForwardClickEvent();
+        this.setBackwardClickEvent();
     }
 
     setTool(tool) {
@@ -193,6 +195,22 @@ class CanvasUI {
     setCanvasMouseLeaveEvent() {
         CanvasElements.canvas.addEventListener(`mouseleave`, () => {
             this.tool.stopDrawing();
+        })
+    }
+
+    setForwardClickEvent() {
+        CanvasElements.forwardButton.addEventListener(`click`, () => {
+            this.canvasStateManager.increaseStateIndex();
+            CanvasElements.canvas.getContext(`2d`)
+                .drawImage(this.canvasStateManager.getState(this.canvasStateManager.getCurrentStateIndex()), 0, 0);
+        })
+    }
+
+    setBackwardClickEvent() {
+        CanvasElements.backButton.addEventListener(`click`, () => {
+            this.canvasStateManager.decreaseStateIndex();
+            CanvasElements.canvas.getContext(`2d`)
+                .drawImage(this.canvasStateManager.getState(this.canvasStateManager.getCurrentStateIndex()), 0, 0);
         })
     }
 
