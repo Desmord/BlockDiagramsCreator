@@ -33,7 +33,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "save": "^2.4.0"
   }
 }
